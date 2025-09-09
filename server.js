@@ -4,10 +4,11 @@ const app = express();
 const PORT = 3500;
 
 app.use(express.json()); // For parsing JSON bodies
+app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from public
 
 // GET
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.get('/about', (req, res) => {
